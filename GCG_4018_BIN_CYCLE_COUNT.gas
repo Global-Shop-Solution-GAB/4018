@@ -1,0 +1,746 @@
+Program.Sub.ScreenSU.Start
+gui.F_CcountBIN..create
+gui.F_CcountBIN..caption("Cycle Count by BIN")
+gui.F_CcountBIN..size(10770,7530)
+gui.F_CcountBIN..position(0,0)
+gui.F_CcountBIN..event(unload,f_ccountbin_unload)
+gui.F_CcountBIN..alwaysontop(False)
+gui.F_CcountBIN..fontname("Arial")
+gui.F_CcountBIN..fontsize(8)
+gui.F_CcountBIN..forecolor(0)
+gui.F_CcountBIN..fontstyle(,,,,)
+gui.F_CcountBIN..BackColor(-2147483633)
+gui.F_CcountBIN..controlbox(True)
+gui.F_CcountBIN..maxbutton(True)
+gui.F_CcountBIN..minbutton(True)
+gui.F_CcountBIN..mousepointer(0)
+gui.F_CcountBIN..moveable(True)
+gui.F_CcountBIN..sizeable(True)
+gui.F_CcountBIN..ShowInTaskBar(True)
+gui.F_CcountBIN..titlebar(True)
+gui.F_CcountBIN.FrameStart.create(frame)
+gui.F_CcountBIN.FrameStart.caption("")
+gui.F_CcountBIN.FrameStart.size(2100,1440)
+gui.F_CcountBIN.FrameStart.position(-35,-90)
+gui.F_CcountBIN.FrameStart.visible(True)
+gui.F_CcountBIN.FrameStart.borderstyle(0)
+gui.F_CcountBIN.FrameStart.fontname("Arial")
+gui.F_CcountBIN.FrameStart.fontsize(8)
+gui.F_CcountBIN.FrameEnd.create(frame)
+gui.F_CcountBIN.FrameEnd.caption("")
+gui.F_CcountBIN.FrameEnd.size(2055,1380)
+gui.F_CcountBIN.FrameEnd.position(8390,-105)
+gui.F_CcountBIN.FrameEnd.visible(True)
+gui.F_CcountBIN.FrameEnd.borderstyle(0)
+gui.F_CcountBIN.FrameEnd.fontname("Arial")
+gui.F_CcountBIN.FrameEnd.fontsize(8)
+gui.F_CcountBIN.FrameAll.create(frame)
+gui.F_CcountBIN.FrameAll.caption("")
+gui.F_CcountBIN.FrameAll.size(2115,1035)
+gui.F_CcountBIN.FrameAll.position(4585,205)
+gui.F_CcountBIN.FrameAll.visible(True)
+gui.F_CcountBIN.FrameAll.borderstyle(0)
+gui.F_CcountBIN.FrameAll.fontname("Arial")
+gui.F_CcountBIN.FrameAll.fontsize(8)
+gui.F_CcountBIN.FrameTitles.create(frame)
+gui.F_CcountBIN.FrameTitles.caption("")
+gui.F_CcountBIN.FrameTitles.size(10170,255)
+gui.F_CcountBIN.FrameTitles.position(200,1990)
+gui.F_CcountBIN.FrameTitles.visible(True)
+gui.F_CcountBIN.FrameTitles.borderstyle(0)
+gui.F_CcountBIN.FrameTitles.fontname("Arial")
+gui.F_CcountBIN.FrameTitles.fontsize(8)
+gui.F_CcountBIN.lblStartDate.create(label,"Start Date",True,735,255,1,135,135,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblStartDate.parent("framestart")
+gui.F_CcountBIN.lblStartDate.defaultvalue("")
+gui.F_CcountBIN.lblStartDate.controlgroup(0)
+gui.F_CcountBIN.dtpStart.create(datepicker)
+gui.F_CcountBIN.dtpStart.visible(True)
+gui.F_CcountBIN.dtpStart.size(1935,345)
+gui.F_CcountBIN.dtpStart.zorder(0)
+gui.F_CcountBIN.dtpStart.position(115,345)
+gui.F_CcountBIN.dtpStart.enabled(True)
+gui.F_CcountBIN.dtpStart.parent("framestart")
+gui.F_CcountBIN.dtpStart.checkbox(False)
+gui.F_CcountBIN.dtpStart.defaultvalue("")
+gui.F_CcountBIN.dtpStart.controlgroup(0)
+gui.F_CcountBIN.lblEndDate.create(label,"End Date",True,645,255,1,95,110,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblEndDate.parent("frameend")
+gui.F_CcountBIN.lblEndDate.defaultvalue("")
+gui.F_CcountBIN.lblEndDate.controlgroup(0)
+gui.F_CcountBIN.dptEndDate.create(datepicker)
+gui.F_CcountBIN.dptEndDate.visible(True)
+gui.F_CcountBIN.dptEndDate.size(1935,285)
+gui.F_CcountBIN.dptEndDate.zorder(0)
+gui.F_CcountBIN.dptEndDate.position(70,300)
+gui.F_CcountBIN.dptEndDate.enabled(True)
+gui.F_CcountBIN.dptEndDate.parent("frameend")
+gui.F_CcountBIN.dptEndDate.checkbox(False)
+gui.F_CcountBIN.dptEndDate.defaultvalue("")
+gui.F_CcountBIN.dptEndDate.controlgroup(0)
+gui.F_CcountBIN.lblStartBIN.create(label,"Start BIN",True,705,255,1,155,800,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblStartBIN.parent("framestart")
+gui.F_CcountBIN.lblStartBIN.defaultvalue("")
+gui.F_CcountBIN.lblStartBIN.controlgroup(0)
+gui.F_CcountBIN.lblEndBIN.create(label,"End BIN",True,645,255,1,100,800,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblEndBIN.parent("frameend")
+gui.F_CcountBIN.lblEndBIN.defaultvalue("")
+gui.F_CcountBIN.lblEndBIN.controlgroup(0)
+gui.F_CcountBIN.cbxAllDates.create(checkbox)
+gui.F_CcountBIN.cbxAllDates.caption("All Cycle Dates")
+gui.F_CcountBIN.cbxAllDates.visible(True)
+gui.F_CcountBIN.cbxAllDates.size(1425,255)
+gui.F_CcountBIN.cbxAllDates.zorder(0)
+gui.F_CcountBIN.cbxAllDates.position(125,110)
+gui.F_CcountBIN.cbxAllDates.enabled(True)
+gui.F_CcountBIN.cbxAllDates.alignment(0)
+gui.F_CcountBIN.cbxAllDates.parent("frameall")
+gui.F_CcountBIN.cbxAllDates.fontname("Arial")
+gui.F_CcountBIN.cbxAllDates.fontsize(8)
+gui.F_CcountBIN.cbxAllDates.event(click,cbxalldates_click)
+gui.F_CcountBIN.cbxAllDates.defaultvalue("")
+gui.F_CcountBIN.cbxAllDates.controlgroup(0)
+gui.F_CcountBIN.cbxAllBINs.create(checkbox)
+gui.F_CcountBIN.cbxAllBINs.caption("All BINS")
+gui.F_CcountBIN.cbxAllBINs.visible(True)
+gui.F_CcountBIN.cbxAllBINs.size(885,255)
+gui.F_CcountBIN.cbxAllBINs.zorder(0)
+gui.F_CcountBIN.cbxAllBINs.position(115,735)
+gui.F_CcountBIN.cbxAllBINs.enabled(True)
+gui.F_CcountBIN.cbxAllBINs.alignment(0)
+gui.F_CcountBIN.cbxAllBINs.parent("frameall")
+gui.F_CcountBIN.cbxAllBINs.fontname("Arial")
+gui.F_CcountBIN.cbxAllBINs.fontsize(8)
+gui.F_CcountBIN.cbxAllBINs.event(click,cbxallbins_click)
+gui.F_CcountBIN.cbxAllBINs.defaultvalue("")
+gui.F_CcountBIN.cbxAllBINs.controlgroup(0)
+gui.F_CcountBIN.GSFGCycleCount.create(gsflexgrid)
+gui.F_CcountBIN.GSFGCycleCount.FixedRows(0)
+gui.F_CcountBIN.GSFGCycleCount.FixedCols(3)
+gui.F_CcountBIN.GSFGCycleCount.visible(True)
+gui.F_CcountBIN.GSFGCycleCount.size(10305,4125)
+gui.F_CcountBIN.GSFGCycleCount.zorder(0)
+gui.F_CcountBIN.GSFGCycleCount.position(100,2315)
+gui.F_CcountBIN.GSFGCycleCount.enabled(True)
+gui.F_CcountBIN.GSFGCycleCount.event(commandclick,gsfgcyclecount_commandclick)
+gui.F_CcountBIN.btnPrint.create(button)
+gui.F_CcountBIN.btnPrint.caption("Print")
+gui.F_CcountBIN.btnPrint.visible(True)
+gui.F_CcountBIN.btnPrint.size(1080,375)
+gui.F_CcountBIN.btnPrint.zorder(0)
+gui.F_CcountBIN.btnPrint.position(100,6500)
+gui.F_CcountBIN.btnPrint.enabled(True)
+gui.F_CcountBIN.btnPrint.fontname("Arial")
+gui.F_CcountBIN.btnPrint.fontsize(8)
+gui.F_CcountBIN.btnPrint.event(click,btnprint_click)
+gui.F_CcountBIN.btnPrint.defaultvalue("")
+gui.F_CcountBIN.btnPrint.controlgroup(0)
+gui.F_CcountBIN.txtBINStart.create(textbox,"",True,1375,300,0,115,990,True,0,Arial,8,-2147483643,1)
+gui.F_CcountBIN.txtBINStart.parent("framestart")
+gui.F_CcountBIN.txtBINStart.defaultvalue("")
+gui.F_CcountBIN.txtBINStart.controlgroup(0)
+gui.F_CcountBIN.txtBINEnd.create(textbox,"",True,1375,300,0,75,985,True,0,Arial,8,-2147483643,1)
+gui.F_CcountBIN.txtBINEnd.parent("frameend")
+gui.F_CcountBIN.txtBINEnd.defaultvalue("")
+gui.F_CcountBIN.txtBINEnd.controlgroup(0)
+gui.F_CcountBIN.btnBrowseBINStart.create(button)
+gui.F_CcountBIN.btnBrowseBINStart.caption("^")
+gui.F_CcountBIN.btnBrowseBINStart.visible(True)
+gui.F_CcountBIN.btnBrowseBINStart.size(375,375)
+gui.F_CcountBIN.btnBrowseBINStart.zorder(0)
+gui.F_CcountBIN.btnBrowseBINStart.position(1635,945)
+gui.F_CcountBIN.btnBrowseBINStart.enabled(True)
+gui.F_CcountBIN.btnBrowseBINStart.parent("framestart")
+gui.F_CcountBIN.btnBrowseBINStart.fontname("Arial")
+gui.F_CcountBIN.btnBrowseBINStart.fontsize(8)
+gui.F_CcountBIN.btnBrowseBINStart.event(click,btnbrowsebinstart_click)
+gui.F_CcountBIN.btnBrowseBINStart.defaultvalue("")
+gui.F_CcountBIN.btnBrowseBINStart.controlgroup(0)
+gui.F_CcountBIN.btnBrowseBINend.create(button)
+gui.F_CcountBIN.btnBrowseBINend.caption("^")
+gui.F_CcountBIN.btnBrowseBINend.visible(True)
+gui.F_CcountBIN.btnBrowseBINend.size(375,375)
+gui.F_CcountBIN.btnBrowseBINend.zorder(0)
+gui.F_CcountBIN.btnBrowseBINend.position(1615,945)
+gui.F_CcountBIN.btnBrowseBINend.enabled(True)
+gui.F_CcountBIN.btnBrowseBINend.parent("frameend")
+gui.F_CcountBIN.btnBrowseBINend.fontname("Arial")
+gui.F_CcountBIN.btnBrowseBINend.fontsize(8)
+gui.F_CcountBIN.btnBrowseBINend.event(click,btnbrowsebinend_click)
+gui.F_CcountBIN.btnBrowseBINend.defaultvalue("")
+gui.F_CcountBIN.btnBrowseBINend.controlgroup(0)
+gui.F_CcountBIN.btnGetBINs.create(button)
+gui.F_CcountBIN.btnGetBINs.caption("Get BINS")
+gui.F_CcountBIN.btnGetBINs.visible(True)
+gui.F_CcountBIN.btnGetBINs.size(1335,375)
+gui.F_CcountBIN.btnGetBINs.zorder(0)
+gui.F_CcountBIN.btnGetBINs.position(100,1370)
+gui.F_CcountBIN.btnGetBINs.enabled(True)
+gui.F_CcountBIN.btnGetBINs.fontname("Arial")
+gui.F_CcountBIN.btnGetBINs.fontsize(8)
+gui.F_CcountBIN.btnGetBINs.event(click,btngetbins_click)
+gui.F_CcountBIN.btnGetBINs.defaultvalue("")
+gui.F_CcountBIN.btnGetBINs.controlgroup(0)
+gui.F_CcountBIN.btnClear.create(button)
+gui.F_CcountBIN.btnClear.caption("Clear Form")
+gui.F_CcountBIN.btnClear.visible(True)
+gui.F_CcountBIN.btnClear.size(1080,375)
+gui.F_CcountBIN.btnClear.zorder(0)
+gui.F_CcountBIN.btnClear.position(9335,6505)
+gui.F_CcountBIN.btnClear.enabled(True)
+gui.F_CcountBIN.btnClear.fontname("Arial")
+gui.F_CcountBIN.btnClear.fontsize(8)
+gui.F_CcountBIN.btnClear.event(click,ClearForm)
+gui.F_CcountBIN.btnClear.defaultvalue("")
+gui.F_CcountBIN.btnClear.controlgroup(0)
+gui.F_CcountBIN.lblPART.create(label,"Part",True,330,255,1,695,20,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblPART.parent("frametitles")
+gui.F_CcountBIN.lblPART.defaultvalue("")
+gui.F_CcountBIN.lblPART.controlgroup(0)
+gui.F_CcountBIN.lblBIN.create(label,"BIN",True,360,255,1,2445,20,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblBIN.parent("frametitles")
+gui.F_CcountBIN.lblBIN.defaultvalue("")
+gui.F_CcountBIN.lblBIN.controlgroup(0)
+gui.F_CcountBIN.lblBINDesc.create(label,"BIN Description",True,1140,255,1,4505,20,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblBINDesc.parent("frametitles")
+gui.F_CcountBIN.lblBINDesc.defaultvalue("")
+gui.F_CcountBIN.lblBINDesc.controlgroup(0)
+gui.F_CcountBIN.lblCycleDate.create(label,"Cycle Date",True,795,255,1,7160,20,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblCycleDate.parent("frametitles")
+gui.F_CcountBIN.lblCycleDate.defaultvalue("")
+gui.F_CcountBIN.lblCycleDate.controlgroup(0)
+gui.F_CcountBIN.lblDeleteBin.create(label,"Delete BIN",True,795,255,1,8765,5,True,0,Arial,8,-2147483633,0)
+gui.F_CcountBIN.lblDeleteBin.parent("frametitles")
+gui.F_CcountBIN.lblDeleteBin.defaultvalue("")
+gui.F_CcountBIN.lblDeleteBin.controlgroup(0)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.bAllBINS.Declare(Boolean,False)
+Variable.Global.bAllDates.Declare(Boolean,False)
+Variable.Global.sQuery.Declare(String)
+Variable.Global.sStartBIN.Declare(String)
+Variable.Global.sEndBIN.Declare(String)
+Variable.Global.iFGStyle.Declare(Long,-1)
+Variable.Global.iRowCount.Declare(Long,-1)
+Variable.UDT.BINS.Define("BIN",String,BIN)
+Variable.UDT.BINS.Define("PART",String,PART)
+Variable.UDT.BINS.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.BINS.Define("UM_INVENTORY",String,UM_INVENTORY)
+Variable.UDT.BINS.Define("QTY_ONHAND",Float,QTY_ONHAND)
+Variable.UDT.BINS.Define("CODE_ABC",String,CODE_ABC)
+Variable.UDT.BINS.Define("BIN_DESCRIPTION",String,BIN_DESCRIPTION)
+Variable.UDT.BINS.Define("CYCLE_DATE_END",String,CYCLE_DATE_END)
+Variable.UDT.BINS.Define("DATE_CYCLE",String,DATE_CYCLE)
+Variable.UDT.BINS.Define("CYCLE_DATE_START",String,CYCLE_DATE_START)
+Variable.UDT.BINS.Define("BIRUNID",Long,BIRUNID)
+Variable.uGlobal.uBINS.Declare("BINS")
+Variable.Global.sStartDate.Declare(String)
+Variable.Global.sEndDate.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+Function.ODBC.Connection!Conx.OpenConnection(Variable.ambient.PDSN,Variable.Ambient.PUSER,Variable.Ambient.PPass)
+V.Global.iFGStyle.Set(0)
+F.Intrinsic.Control.CallSub(Flexgridformatting)
+Gui.F_CcountBIN..Show
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+program.sub.f_ccountbin_unload.start
+V.Local.sError.Declare
+V.Local.sRet.Declare
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.UI.Msgbox("Are you sure you want to close this program?","Program Shutdown",1,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,=,1)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Endif
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+
+
+
+program.sub.f_ccountbin_unload.end
+
+program.sub.gsfgcyclecount_commandclick.start
+V.Local.sret.Declare
+V.Local.sOrdinal.Declare
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("gsfgcyclecount_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sOrdinal.Set(V.Screen.F_CcountBIN!GSFGCycleCount.Row)
+F.Intrinsic.Math.Sub(V.Local.sOrdinal,1,V.Local.sOrdinal)
+
+F.Intrinsic.UI.Msgbox("Are you sure you would like to delete this BIN?","Delete Selection",1,V.Local.sRet)
+
+Gui.F_CcountBIN.GSFGCycleCount.Enabled(FALSE)
+
+
+
+F.Intrinsic.Control.If(V.Local.sret,=,1)
+'	F.Intrinsic.Variable.UDTFlagOrdinal(V.uGlobal.uBINS,TRUE,V.Local.sOrdinal)
+	F.Intrinsic.Variable.UDTFlagOrdinal(V.uGlobal.uBINS,TRUE,V.Args.Key)
+	GUI.F_CcountBIN.GSFGCycleCount.DeleteRow(V.Screen.F_CcountBIN!GSFGCycleCount.Row)
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uBINS)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+Gui.F_CcountBIN.GSFGCycleCount.Enabled(TRUE)
+
+F.Intrinsic.Control.Label("gsfgcyclecount_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+program.sub.gsfgcyclecount_commandclick.end
+
+program.sub.btnprint_click.start
+V.Local.sError.Declare
+V.Local.sRet.Declare
+V.Local.iBIRunID.Declare
+V.Local.iLogID.Declare
+V.Local.iCount.Declare
+V.Local.sParam.Declare
+V.Local.sVal.Declare
+F.Intrinsic.Control.SetErrorHandler("Print_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.UI.Msgbox("Are you sure you want to export the information in the grid to your report?","Export BINs to Report",1,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,=,1)
+	F.Global.BI.GetRunID(V.Local.iBIRunID)
+	F.Global.BI.StartLogging(V.Local.iBIRunID,-1,-1,"",V.Local.iLogID)
+	F.Intrinsic.UI.InvokeWaitDialog("Generating the records for your report. This may take a few minutes.")
+
+	F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uBINS.UBound,1)
+		V.uGlobal.uBINS(V.Local.iCount)!BIRUNID.Set(V.Local.iBIRunID)
+'		V.uGlobal.uBINS(V.Local.iCount)!CYCLE_DATE_START.Set(V.Global.sStartDate)
+		V.uGlobal.uBINS(V.Local.iCount)!CYCLE_DATE_END.Set(V.Global.sENDDate)
+	F.Intrinsic.Control.Next(V.Local.iCount)
+	F.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uBINS!CYCLE_DATE_START,False)
+	'F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uCurrP!Part,V.uGlobal.uInv(V.Local.i)!Part,V.uGlobal.uCurrP!SC,V.uGlobal.uInv(V.Local.i)!SC)
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uBINS!PART,"",V.Local.sRet)
+	'Function.Intrinsic.Variable.UDTFlagOrdinal(UDT name, Flag/Unflag as boolean,ordinal positions as string)
+	F.Intrinsic.Variable.UDTFlagOrdinal(V.uGlobal.uBINS,True,V.Local.sRet)
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uBINS)
+
+	F.Intrinsic.String.Concat("DELETE from GCG_4018_BIN","",V.Global.sQuery)
+	F.ODBC.Connection!conx.Execute(V.Global.sQuery)
+
+	F.Intrinsic.String.Concat("SELECT * FROM GCG_4018_BIN","",V.Global.sQuery)
+	F.ODBC.Connection!Conx.OpenRecordsetRW("rstSaveToTable",V.Global.sQuery)
+	F.Intrinsic.Variable.SaveUDTToRecordSet("Conx","rstSaveToTable","V.uGlobal.uBINS")
+
+	F.ODBC.Conx!rstSaveToTable.Close
+	F.Intrinsic.UI.CloseWaitDialog
+	F.Global.BI.StopLogging(V.Local.iLogID)
+	V.Local.sParam.Set("BIRUNID")
+	V.Local.sVal.Set(V.Local.iBIRunID)
+	'Print the Report
+	F.Global.BI.RunReportPreProcessor(V.Local.iBIRunID,V.Local.iLogID,V.Local.sParam,V.Local.sVal,"",-1,True,"",-1,"",-1,"","",V.Local.iBIRunID)
+
+
+	F.Intrinsic.Control.CallSub(Clearform)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIF
+
+F.Intrinsic.Control.Label("Print_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+program.sub.btnprint_click.end
+
+program.sub.cbxalldates_click.start
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("AllDates_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.F_CcountBIN!cbxAllDates.Value,=,1)
+	V.Global.bAllDates.Set(True)
+	Gui.F_CcountBIN.dtpStart.Enabled(FALSE)
+	Gui.F_CcountBIN.dptEndDate.Enabled(FALSE)
+F.Intrinsic.Control.Else
+	V.Global.bAllDates.Set(False)
+	Gui.F_CcountBIN.dtpStart.Enabled(TRUE)
+	Gui.F_CcountBIN.dptEndDate.Enabled(TRUE)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Label("AllDates_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cbxalldates_click.end
+
+program.sub.cbxallbins_click.start
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("AllBINS_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.F_CcountBIN!cbxAllBINs.Value,=,1)
+	V.Global.bAllBINS.Set(True)
+	Gui.F_CcountBIN.txtBINStart.Enabled(FALSE)
+	Gui.F_CcountBIN.btnBrowseBINStart.Enabled(FALSE)
+	Gui.F_CcountBIN.txtBINEnd.Enabled(FALSE)
+	Gui.F_CcountBIN.btnBrowseBINend.Enabled(FALSE)
+F.Intrinsic.Control.Else
+	V.Global.bAllBINS.Set(False)
+	Gui.F_CcountBIN.txtBINStart.Enabled(TRUE)
+	Gui.F_CcountBIN.btnBrowseBINStart.Enabled(TRUE)
+	Gui.F_CcountBIN.txtBINEnd.Enabled(TRUE)
+	Gui.F_CcountBIN.btnBrowseBINend.Enabled(TRUE)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Label("AllBINS_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+program.sub.cbxallbins_click.end
+
+program.sub.btnbrowsebinstart_click.start
+V.Local.sRet.Declare
+V.Local.sBinStart.Declare
+V.Local.sColTitles.Declare(String,"BIN*!*Description")
+V.Local.sColWidths.Declare(String,"2000*!*2000")
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("BrowseBINStart_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sBinStart.Set(V.Screen.F_CcountBIN!txtBINStart.Text)
+F.Intrinsic.String.Trim(V.Local.sBinStart,V.Local.sBinStart)
+F.Intrinsic.String.Split(V.local.sColTitles,"*!*",V.Local.sColTitles)
+F.Intrinsic.String.Split(V.local.sColWidths,"*!*",V.Local.sColWidths)
+
+F.Intrinsic.Control.If(V.Local.sBinStart.Length,>,0)
+	F.Intrinsic.String.Concat("SELECT BIN, BIN_DESCRIPTION FROM BIN_MASTER WHERE BIN LIKE '%",V.Local.sBinStart,"%","' ORDER BY BIN",V.Global.sQuery)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("SELECT BIN, BIN_DESCRIPTION FROM BIN_MASTER ORDER BY BIN","",V.Global.sQuery)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select a starting BIN","conx",V.Global.sQuery,V.Local.sColTitles,V.Local.sColWidths,"9000","5000",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	V.Global.sStartBIN.Set(V.Local.sRet(0))
+F.Intrinsic.Control.Else
+	V.Global.sStartBIN.Set(V.Local.sBinStart)
+	F.Intrinsic.Control.If(V.Local.sBinStart.Length,<,1)
+		F.Intrinsic.UI.Msgbox("Please enter a starting BIN in the text field.")
+	F.Intrinsic.Control.Else
+		V.Global.sStartBIN.Set(V.Local.sBinStart)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Gui.F_CcountBIN.txtBINStart.Text(V.Global.sStartBIN)
+
+F.Intrinsic.Control.Label("BrowseBINStart_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.btnbrowsebinstart_click.end
+
+program.sub.btnbrowsebinend_click.start
+V.Local.sRet.Declare
+V.Local.sBinEnd.Declare
+V.Local.sColTitles.Declare(String,"BIN*!*Description")
+V.Local.sColWidths.Declare(String,"2000*!*2000")
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("BrowseBINEnd_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sBinEnd.Set(V.Screen.F_CcountBIN!txtBINEnd.Text)
+F.Intrinsic.String.Trim(V.Local.sBinEnd,V.Local.sBinEnd)
+F.Intrinsic.String.Split(V.local.sColTitles,"*!*",V.Local.sColTitles)
+F.Intrinsic.String.Split(V.local.sColWidths,"*!*",V.Local.sColWidths)
+
+F.Intrinsic.Control.If(V.Local.sBinEnd.Length,>,0)
+	F.Intrinsic.String.Concat("SELECT BIN, BIN_DESCRIPTION FROM BIN_MASTER WHERE BIN LIKE '%",V.Local.sBinEnd,"%","' ORDER BY BIN",V.Global.sQuery)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("SELECT BIN, BIN_DESCRIPTION FROM BIN_MASTER ORDER BY BIN","",V.Global.sQuery)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select a starting BIN","conx",V.Global.sQuery,V.Local.sColTitles,V.Local.sColWidths,"9000","5000",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	V.Global.sEndBIN.Set(V.Local.sRet(0))
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Local.sBinEnd.Length,<,1)
+		F.Intrinsic.UI.Msgbox("Please enter an ending BIN in the text field.")
+	F.Intrinsic.Control.Else
+		V.Global.sEndBIN.Set(V.Local.sBinEnd)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Gui.F_CcountBIN.txtBINEnd.Text(V.Global.sEndBIN)
+
+F.Intrinsic.Control.Label("BrowseBINEnd_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.btnbrowsebinend_click.end
+
+Program.Sub.FillFlexgrid.Start
+V.Local.iOPtion.Declare(Long,3)
+V.Local.sWhereStatement.Declare
+V.Local.sStartDate.Declare
+V.Local.sSDate.Declare
+V.Local.sEndDate.Declare
+V.Local.sEDate.Declare
+V.Local.iUDTRowCount.Declare(Long,-1)
+V.Local.sError.Declare
+V.Local.sret.Declare
+F.Intrinsic.Control.SetErrorHandler("FillFlexGrid_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sStartDate.Set(V.Screen.F_CcountBIN!dtpStart.Value)
+V.Local.sEndDate.Set(V.Screen.F_CcountBIN!dptEndDate.Value)
+
+F.Intrinsic.String.Split(V.Local.sStartDate,"/",V.Local.sStartDate)
+F.Intrinsic.String.LPad(V.Local.sStartDate(0),"0",2,V.Local.sStartDate(0))
+F.Intrinsic.String.LPad(V.Local.sStartDate(1),"0",2,V.Local.sStartDate(1))
+F.Intrinsic.String.Right(V.Local.sStartDate(2),2,V.Local.sStartDate(2))
+F.Intrinsic.String.Concat(V.Local.sStartDate(2),V.Local.sStartDate(0),V.Local.sStartDate(1),V.Local.sSDate)
+V.Global.sStartDate.Set(V.Local.sSDate)
+
+F.Intrinsic.String.Split(V.Local.sEndDate,"/",V.Local.sEndDate)
+F.Intrinsic.String.LPad(V.Local.sEndDate(0),"0",2,V.Local.sEndDate(0))
+F.Intrinsic.String.LPad(V.Local.sEndDate(1),"0",2,V.Local.sEndDate(1))
+F.Intrinsic.String.Right(V.Local.sEndDate(2),2,V.Local.sEndDate(2))
+F.Intrinsic.String.Concat(V.Local.sEndDate(2),V.Local.sEndDate(0),V.Local.sEndDate(1),V.Local.sEDate)
+V.Global.sEndDate.Set(V.Local.sEDate)
+
+F.Intrinsic.Control.If(V.Global.bAllDates,=,True)
+	F.Intrinsic.Math.Sub(V.Local.iOPtion,2,V.Local.iOPtion)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Global.bAllBINS,=,True)
+	F.Intrinsic.Math.Sub(V.Local.iOPtion,1,V.Local.iOPtion)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.SelectCase(V.Local.iOPtion)
+	F.Intrinsic.Control.Case(1)
+		'All dates with BIN range
+		F.Intrinsic.String.Concat(" AND ITEM_MASTER.BIN BETWEEN '",V.Global.sStartBIN,"' AND '",V.Global.sEndBIN,"'",V.local.sWhereStatement)
+	F.Intrinsic.Control.Case(2)
+		'Date Range, All BINS
+		F.Intrinsic.String.Concat(" AND INVENTORY_MST2.DATE_CYCLE BETWEEN '",V.Local.sSDate,"' AND '",V.Local.sEDate,"'",V.local.sWhereStatement)
+
+	F.Intrinsic.Control.Case(3)
+		'Date Range and BIN Range
+		F.Intrinsic.String.Concat(" AND INVENTORY_MST2.DATE_CYCLE BETWEEN '",V.Local.sSDate,"' AND '",V.Local.sEDate,"' AND ITEM_MASTER.BIN BETWEEN'",V.Global.sStartBIN,"' AND '",V.Global.sEndBIN,"'",V.Local.sWhereStatement)
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.UI.InvokeWaitDialog("Getting records from the database. This may take a few minutes.")
+
+F.Intrinsic.String.Concat("SELECT DISTINCT INVENTORY_MSTR.PART, INVENTORY_MSTR.CODE_ABC, INVENTORY_MSTR.DESCRIPTION, INVENTORY_MSTR.UM_INVENTORY,SUM(ITEM_MASTER.QUANTITY) AS QTY_ONHAND, INVENTORY_MST2.DATE_CYCLE,ITEM_MASTER.BIN, ","",V.Global.sQuery)
+F.Intrinsic.String.Concat(V.Global.sQuery,"BIN_MASTER.BIN_DESCRIPTION, ' ' AS BIRUNID, INVENTORY_MST2.DATE_CYCLE AS CYCLE_DATE_START, ' ' AS CYCLE_DATE_END FROM INVENTORY_MSTR LEFT OUTER JOIN INVENTORY_MST2 ON INVENTORY_MSTR.PART = INVENTORY_MST2.PART ","",V.Global.sQuery)
+F.Intrinsic.String.Concat(V.Global.sQuery,"LEFT OUTER JOIN ITEM_MASTER ON INVENTORY_MSTR.PART = ITEM_MASTER.PART LEFT OUTER JOIN BIN_MASTER ON ITEM_MASTER.BIN = BIN_MASTER.BIN WHERE ITEM_MASTER.BIN <> '' ",V.Local.sWhereStatement," GROUP BY INVENTORY_MSTR.PART, ","",V.Global.sQuery)
+F.Intrinsic.String.Concat(V.Global.sQuery,"INVENTORY_MSTR.CODE_ABC, INVENTORY_MSTR.DESCRIPTION, INVENTORY_MSTR.UM_INVENTORY,ITEM_MASTER.BIN,BIN_MASTER.BIN_DESCRIPTION, INVENTORY_MST2.DATE_CYCLE ORDER BY INVENTORY_MST2.DATE_CYCLE, INVENTORY_MSTR.PART","",V.Global.sQuery)
+
+
+
+F.ODBC.Connection!Conx.OpenRecordsetRO("rstBINS",V.Global.sQuery)
+
+F.Intrinsic.Variable.LoadUDTFromRecordset("Conx","rstBINS","uGlobal.uBINS","FALSE",100000)
+
+F.ODBC.Conx!rstBINS.Close
+
+V.Global.iRowCount.Set(V.uGlobal.uBINS.UBound)
+F.Intrinsic.UI.CloseWaitDialog
+F.Intrinsic.Control.If(V.uGlobal.uBINS.UBound,>,-1)
+	Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,0,"Format","Alignment",2)
+	Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,1,"Format","Alignment",2)
+	Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,2,"Format","Alignment",2)
+	Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,3,"Format","Alignment",2)
+	Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,4,"Format","Alignment",4)
+	Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,4,"Type","Command","Delete")
+	Gui.F_CcountBIN.GSFGCycleCount.Visible(FALSE)
+	F.Intrinsic.UI.InvokeWaitDialog("Loading screen with the selected BINS. This may take several minutes.")
+	F.Intrinsic.Variable.UDTToString(V.uGlobal.uBINS,"PART*!*BIN*!*BIN_DESCRIPTION*!*DATE_CYCLE*!*BIN","!*!","*!*",v.Local.sRet)
+	Gui.F_CcountBIN.GSFGCycleCount.LoadFromString(V.Local.sret,1)
+
+	'Gui.F_CcountBIN.GSFGCycleCount.LoadFromUDT("	V.uGlobal.uBINS","PART*!*BIN*!*BIN_DESCRIPTION*!*DATE_CYCLE*!*BIRUNID",1)
+	V.Global.iFGStyle.Set(1)
+	F.Intrinsic.Control.CallSub(Flexgridformatting)
+	F.Intrinsic.UI.CloseWaitDialog
+	Gui.F_CcountBIN.GSFGCycleCount.Visible(TRUE)
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Your search criteria did not return any records for the date(s) selected.")
+	F.Intrinsic.Control.CallSub(Clearform)
+F.Intrinsic.Control.EndIf
+
+Gui.F_CcountBIN..Enabled(TRUE)
+Gui.F_CcountBIN.btnPrint.Enabled(TRUE)
+Gui.F_CcountBIN.btnClear.Enabled(TRUE)
+Gui.F_CcountBIN.btnGetBINs.Enabled(TRUE)
+
+
+
+F.Intrinsic.Control.Label("FillFlexGrid_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.FillFlexgrid.End
+
+Program.Sub.FlexgridFormatting.Start
+V.Local.iCount.Declare
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("FlexgridFormatting_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.SelectCase(V.Global.iFGStyle)
+	F.Intrinsic.Control.Case(0)
+		Gui.F_CcountBIN.GSFGCycleCount.Rows(1)
+		Gui.F_CcountBIN.GSFGCycleCount.Cols(5)
+		Gui.F_CcountBIN.GSFGCycleCount.ColWidth(0,1700)
+		Gui.F_CcountBIN.GSFGCycleCount.ColWidth(1,1700)
+		Gui.F_CcountBIN.GSFGCycleCount.ColWidth(2,3300)
+		Gui.F_CcountBIN.GSFGCycleCount.ColWidth(3,1700)
+		Gui.F_CcountBIN.GSFGCycleCount.ColWidth(4,1500)
+
+	F.Intrinsic.Control.Case(1)
+		F.Intrinsic.Math.Add(V.Global.iRowCount,1,V.Global.iRowCount)
+		F.Intrinsic.Control.For(V.Local.iCount,0,V.Global.iRowCount,1)
+			Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,0,"Format","Alignment",2)
+			Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,1,"Format","Alignment",2)
+			Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,2,"Format","Alignment",2)
+			Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,3,"Format","Alignment",2)
+			Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,4,"Format","Alignment",4)
+			Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(1,4,"Type","Command","Delete")
+			Gui.F_CcountBIN.GSFGCycleCount.ApplyStyle(V.Local.iCount,1)
+		F.Intrinsic.Control.Next(V.Local.iCount)
+		F.Intrinsic.Math.Sub(V.Global.iRowCount,1,V.Global.iRowCount)
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Label("FlexgridFormatting_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.FlexgridFormatting.End
+
+program.sub.btngetbins_click.start
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("GetBINs_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Global.bAllBINS,=,False)
+	F.Intrinsic.Control.If(V.Screen.F_CcountBIN!txtBINStart.text,=,"")
+		F.Intrinsic.UI.Msgbox("Please select/enter a starting BIN.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Global.bAllBINS,=,False)
+	F.Intrinsic.Control.If(V.Screen.F_CcountBIN!txtBINEnd.text,=,"")
+		F.Intrinsic.UI.Msgbox("Please select/enter an ending BIN.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Gui.F_CcountBIN.btnGetBINs.Enabled(FALSE)
+
+Gui.F_CcountBIN..Enabled(FALSE)
+Gui.F_CcountBIN.btnPrint.Enabled(FALSE)
+Gui.F_CcountBIN.btnClear.Enabled(FALSE)
+F.Intrinsic.Control.CallSub(Fillflexgrid)
+
+F.Intrinsic.Control.Label("GetBINs_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+program.sub.btngetbins_click.end
+
+Program.Sub.ClearForm.Start
+V.Local.sError.Declare
+F.Intrinsic.Control.SetErrorHandler("ClearForm_Err")
+F.Intrinsic.Control.ClearErrors
+
+Gui.F_CcountBIN.cbxAllBINs.Value(0)
+Gui.F_CcountBIN.cbxAllDates.Value(0)
+Gui.F_CcountBIN.dtpStart.Value(V.Ambient.Date)
+Gui.F_CcountBIN.dptEndDate.Value(V.Ambient.Date)
+Gui.F_CcountBIN.txtBINStart.Text("")
+Gui.F_CcountBIN.txtBINEnd.Text("")
+Gui.F_CcountBIN.GSFGCycleCount.ClearStyle(1)
+Gui.F_CcountBIN.GSFGCycleCount.Visible(False)
+Gui.F_CcountBIN.GSFGCycleCount.Rows(1)
+Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(2,0,"Format","Alignment",2)
+Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(2,1,"Format","Alignment",2)
+Gui.F_CcountBIN.GSFGCycleCount.BuildStyle(2,2,"Format","Alignment",2)
+Gui.F_CcountBIN.GSFGCycleCount.TextMatrix(0,0,"")
+Gui.F_CcountBIN.GSFGCycleCount.TextMatrix(1,0,"")
+Gui.F_CcountBIN.GSFGCycleCount.TextMatrix(2,0,"")
+Gui.F_CcountBIN.GSFGCycleCount.TextMatrix(3,0,"")
+Gui.F_CcountBIN.GSFGCycleCount.ApplyStyle(0,2)
+Gui.F_CcountBIN.GSFGCycleCount.Visible(TRUE)
+
+
+
+F.Intrinsic.Control.Label("ClearForm_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4018_BIN_CYCLE_COUNT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ClearForm.End
+
+
